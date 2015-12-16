@@ -1,0 +1,35 @@
+/* custom style sheet */
+/* home page css */
+ @font-face {
+    font-family: 'myFirstFont';
+    src: url(../fonts/Mr_Sunshine_2.ttf);
+
+}
+
+h1.heading {
+	color: maroon;
+	font-family: 'myFirstFont';
+	font-size: 120px;
+	
+}
+
+/* header */
+.navbar{
+	margin-bottom: 0px;
+
+}
+
+.jumbotron{
+	margin-bottom: 0px;
+}
+
+.navbar-brand{
+	font-family: 'myFirstFont';
+	font-size: 25px;
+	color: #fff;
+}
+
+
+
+
+
