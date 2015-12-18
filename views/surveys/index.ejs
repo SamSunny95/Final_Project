@@ -4,21 +4,21 @@
              background-repeat:no-repeat; display: compact ; " >
 	<main class="container">
 			<h1 class="heading">Create a Survey</h1>
-			<form method="post" name="surveyForm" novalidate>
-		<div class="col-sm-4">
 			
+		<div class="col-sm-4">
+			<form method="post" name="surveyForm">
 				<fieldset class="form-group">
 					<label for="name">Name: *</label>
-					<input name="email" type="name" class="form-control" required autofocus />
+					<input name="name" type="text" class="form-control" required autofocus />
 				</fieldset>
 				<fieldset class="form-group">
 					<label for="template">Template: *</label></br>
-					<input onclick="getTemplate()" id="mcqbtn" type= "radio" name ="template" value="checkbox">&nbsp&nbspCheckBox</br>
-					<input onclick="getTemplate()" id="tofbtn" type= "radio" name ="template" value="bool">&nbsp&nbspTrue or False
+					<input type= "radio" name ="template" value="CheckBox">&nbsp&nbspCheckBox</br>
+					<input type= "radio" name ="template" value="True or False">&nbsp&nbspTrue or False
 				</fieldset>
 				<fieldset class="form-group">
-					<label for="ActiveDate">Active Date: *</label>
-					<input name="ActiveDate" type="Date" class="form-control" required />untill:</br>
+					<label for="activeDate">Active Date: *</label>
+					<input name="activeDate" type="Date" class="form-control" required />untill:</br>
 					<input name="expireDate" type="Date" class="form-control" required />
 				</fieldset>
 				<fieldset class="form-group">
@@ -32,56 +32,8 @@
 				<fieldset class="form-group text-right">
 					<input type="submit" class="btn btn-success" value="Submit"/>
 				</fieldset>
-			
+			</form>
 		</div>
-		<div class="col-sm-1"></div>
-		<div class="col-sm-7" id="mcq" style="display:none">
-		<fieldset class="form-group">
-			<label for="question">Question: </label></br>
-			<textarea name="question" required rows="3" cols="50"></textarea>	
-		</fieldset>
-		<fieldset class="form-group">
-			<label for="option1">Option 1: </label>
-				<input class="form-group" type="text" name="option1" required /></br>
-			<label for="option2">Option 2: </label>
-				<input class="form-group" type="text" name="option2" required /></br>
-			<label for="option3">Option 3: </label>
-				<input class="form-group" type="text" name="option3" required /></br>
-			<label for="option4">Option 4: </label>
-				<input class="form-group" type="text" name="option4" required /></br>
-		</fieldset>
-		</div>
-		
-		<div class="col-sm-7" id="tof" style="display:none">
-		<fieldset class="form-group">
-			<label for="question">Question: </label></br>
-			<textarea name="question" required rows="3" cols="50"></textarea>	
-		</fieldset>
-		<fieldset class="form-group">
-			<label for="option1">Option 1: </label>
-				<input class="form-group" type="text" name="option1" value="True" readonly /></br>
-			<label for="option2">Option 2: </label>
-				<input class="form-group" type="text" name="option2" value="False" readonly /></br>
-		</fieldset>
-		</div>
-	</form>
 	</main>
 	 </div>
-
-<script>
-function getTemplate()
-{
-if(document.getElementById('mcqbtn').checked == true)
-	{
-		document.getElementById('mcq').style.display="block";
-		document.getElementById('tof').style.display="none";
-	}
-else if(document.getElementById('tofbtn').checked == true)
-	{
-		document.getElementById('mcq').style.display="none";
-		document.getElementById('tof').style.display="block";
-	}
-}
-
-</script>
 <%- include ../partials/footer.ejs %>

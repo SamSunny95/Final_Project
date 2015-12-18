@@ -11,17 +11,8 @@ var UserSchema = new Schema({
 	active: Date,
 	expire: Date,
 	noOfQuestions: Number,
-	question: String,
-	op1:String,
-	op2:String, 
-	op3:String, 
-	op4:String,
-	resp:[{answer:String}],
-	questions:[{
-		text: String,
-		options:[{1:String, 2:String, 3:String, 4:String}],
-		response:[{ans:String}]
-	}]
+	userName: String
+	
 }, {
 	collection: 'surveyInfo'
 });
