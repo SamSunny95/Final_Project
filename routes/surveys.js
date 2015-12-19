@@ -53,9 +53,9 @@ router.post('/createsurvey', requireAuth, function (req, res, next) {
         name: req.body.name,
         template: req.body.template,
         active: req.body.activeDate,
-        expire: req.body.expireDate
-        
-                
+        expire: req.body.expireDate,
+        userName : req.user ? req.user.display : ''
+         
         
     }, function (err, Survey) {
         if (err) {

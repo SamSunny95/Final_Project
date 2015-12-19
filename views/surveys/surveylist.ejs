@@ -21,7 +21,10 @@
                     </tr>
                 </thead>
                 </tbody>
-                <% for (var i = 0; i < surveys.length; i++) { %>
+                <%
+                for (var i = 0; i < surveys.length; i++) {
+                if(surveys[i].userName == displayName){
+                %>
                 <tr>
                     <td>
                         <%= surveys[i].name %>
