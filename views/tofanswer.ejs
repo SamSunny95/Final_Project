@@ -1,0 +1,40 @@
+<% include partials/header.ejs %>
+
+<div class="jumbotron" style="background-image: url('http://bridgefordtrust.com/wp-content/uploads/2012/04/background1.jpg');
+             background-repeat:no-repeat; display: compact ; " >
+	<main class="container">
+			<h1 class="heading">Take Surveytof</h1>
+
+<div class="col-sm-7" id="tof">
+	
+<%
+for (var i = 0; i < question.length; i++) { 
+if(question[i].surveyId == survey._id)
+{
+%>
+	<form method="post" name="tofeditform">
+		<fieldset class="form-group">
+			<label for="question">Question: </label></br>
+			<p><%= question[i].question %> </p>	
+		</fieldset>
+		<fieldset class="form-group">
+					
+					<input type= "radio" name ="option<%= k++ %>" value="<%= question[i].op1 %>">&nbsp&nbsp<%= question[i].op1 %></br>
+					<input type= "radio" name ="option" value="<%= question[i].op2 %>">&nbsp&nbsp<%= question[i].op2 %></br>
+					
+		</fieldset>
+		
+		<input class="form-group" type="text" style="display:none" name="questionId" value="<%= question[i]._id  %>" />
+		<% } } %>
+		<fieldset class="form-group text-right">
+                <input type="submit" class="btn btn-success" value="Submit"/>
+            </fieldset>	
+		
+		</form>
+		</div>
+
+		</main>
+		</div>
+	
+
+<%- include partials/footer.ejs %>

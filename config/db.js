@@ -1,4 +1,4 @@
 module.exports = {
-	'url': 'mongodb://localhost/myapp'
+	'url': 'mongodb://samsunny:sunny123@ds033875.mongolab.com:33875/surveydb'
 };
 
