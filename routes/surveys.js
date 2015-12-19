@@ -100,12 +100,19 @@ router.get('/:id', requireAuth, function (req, res, next) {
             res.end(err);
         }
         else {
+            Question.find(function (err, question) {
+        if (err) {
+            console.log(err);
+            res.end(err);
+        }
+        else {
             //show the edit view
             if(survey.template == "CheckBox")
             {
             res.render('surveys/ckbedit', {
                 title: 'Surveys',
                 survey: survey,
+                question: question,
                 displayName: req.user ? req.user.displayName : ''
             });
             }
@@ -114,29 +121,38 @@ router.get('/:id', requireAuth, function (req, res, next) {
             res.render('surveys/tofedit', {
                 title: 'Surveys',
                 survey: survey,
+                question: question,
                 displayName: req.user ? req.user.displayName : ''
             });
             }
+            
+            
+
+                
         }
+    });
+            
+        }//end
     });
 });
 
-/* process the edit form submission */
+
+
 router.post('/:id', requireAuth, function (req, res, next) {
-    var id = req.params.id;
-    var user = new User(req.body);
-    user.password = user.generateHash(user.password);
-    user._id = id;
-    user.updated = Date.now();
-    
-    // use mongoose to do the update
-    User.update({ _id: id }, user, function (err) {
+    Question.create({
+        question: req.body.question,
+        op1: req.body.option1,
+        op2: req.body.option2,
+        op3: req.body.option3,
+        op4: req.body.option4,
+        surveyId: req.body.surveyId
+    }, function (err, User) {
         if (err) {
             console.log(err);
             res.end(err);
         }
         else {
-            res.redirect('/users');
+            res.redirect('/surveys');
         }
     });
 });
