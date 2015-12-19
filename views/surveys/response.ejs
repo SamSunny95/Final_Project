@@ -1,0 +1,51 @@
+<% include ../partials/header.ejs %>
+<div class="jumbotron" style="background-image: url('http://bridgefordtrust.com/wp-content/uploads/2012/04/background1.jpg');
+             background-repeat:no-repeat; display: compact ; " >
+	<main class="container">
+			<h1 class="heading">Result</h1>
+
+<div class="col-sm-7" id="mcq">
+	
+<% 
+var a=0;
+var b=0;
+var c=0;
+var d=0;
+for (var i = 0; i < question.length; i++) { 
+if(answer[i].questionId == question._id)
+{
+if(answer[i].response == question.op1)
+a = a + 1;
+else if(answer[i].response == question.op2)
+b = b + 1;
+else if(answer[i].response == question.op3)
+c = c + 1;
+else if(answer[i].response == question.op1)
+d = d + 1;
+}
+%>
+	
+		<fieldset class="form-group">
+			<label for="question">Question: </label></br>
+			<p><%= question[i].question %> </p>	
+		</fieldset>
+		<fieldset class="form-group">
+					
+					<label>&nbsp&nbsp<%= question[i].op1 %></br>
+					<label>&nbsp&nbsp<%= question[i].op2 %></br>
+					<label>&nbsp&nbsp<%= question[i].op3 %></br>
+					<label>&nbsp&nbsp<%= question[i].op4 %></br>
+					
+		</fieldset>
+		
+		
+		<% } %>
+		
+		
+		</form>
+		</div>
+
+		</main>
+		</div>
+
+<%- include ../partials/footer.ejs %>

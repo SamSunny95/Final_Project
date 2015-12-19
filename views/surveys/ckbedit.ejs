@@ -23,8 +23,9 @@ if(question[i].surveyId == survey._id)
 			<label for="option3">Option 3: </label>
 				<input class="form-group" type="text" name="option3" value="<%= question[i].op3 %>" required /></br>
 			<label for="option4">Option 4: </label>
-				<input class="form-group" type="text" name="option4" value="<%= question[i].op4 %>" required /></br>
-				<input class="form-group" type="text" name="surveyId" value="<%= survey._id  %>" />
+				<input class="form-group" type="text" name="option4" value="<%= question[i].op4 %>" required /></br></br>
+				<a href="/surveys/responses/<%= question[i]._id %>">See Responses</a>
+				<input class="form-group" type="text" style="display:none" name="surveyId" value="<%= survey._id  %>" />
 		</fieldset>
 		<% } } %>
 		<h2>Add a new Question</h2>
@@ -42,7 +43,7 @@ if(question[i].surveyId == survey._id)
 				<input class="form-group" type="text" name="option3" value="" required /></br>
 			<label for="option4">Option 4: </label>
 				<input class="form-group" type="text" name="option4" value="" required /></br>
-				<input class="form-group" type="text" name="surveyId" value="<%= survey._id  %>" />
+				<input class="form-group" type="text" style="display:none" name="surveyId" value="<%= survey._id  %>" />
 		<fieldset class="form-group text-right">
                 <input type="submit" class="btn btn-success" value="Submit"/>
             </fieldset>	

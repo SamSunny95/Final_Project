@@ -4,6 +4,7 @@ var router = express.Router();
 
 var Survey = require('../models/survey');
 var Question = require('../models/question');
+var Answer = require('../models/answer');
 
 /* Utility functin to check if user is authenticatd */
 function requireAuth(req, res, next){
@@ -136,6 +137,39 @@ router.get('/:id', requireAuth, function (req, res, next) {
     });
 });
 
+router.get('/responses/:id', requireAuth, function (req, res, next) {
+    // create an id variable
+    var id = req.params.id;
+    
+    // use mongoose and our model to find the right user
+    Question.findById(id, function (err, question) {
+        if (err) {
+            console.log(err);
+            res.end(err);
+        }
+        else {
+            Answer.find(function (err, answer) {
+        if (err) {
+            console.log(err);
+            res.end(err);
+        }
+        else {
+            
+           
+            res.render('surveys/response', {
+                title: 'Surveys',
+                answer: answer,
+                question: question,
+                displayName: req.user ? req.user.displayName : ''
+            });
+
+                
+        }
+    });
+            
+        }//end
+    });
+});
 
 
 router.post('/:id', requireAuth, function (req, res, next) {

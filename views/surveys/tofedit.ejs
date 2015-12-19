@@ -33,7 +33,7 @@ if(question[i].surveyId == survey._id)
 				<input class="form-group" type="text" name="option1" value="True" readonly /></br>
 			<label for="option2">Option 2: </label>
 				<input class="form-group" type="text" name="option2" value="False" readonly /></br>
-				<input class="form-group" type="text" name="surveyId" value="<%= survey._id  %>" />
+				<input class="form-group" type="text" style="display:none" name="surveyId" value="<%= survey._id  %>" />
 		</fieldset>
 		<fieldset class="form-group text-right">
                 <input type="submit" class="btn btn-success" value="Submit"/>
